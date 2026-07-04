@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rakesh Selvaraj — Zoology Portfolio</title>
+<meta name="description" content="M.Sc. Zoology graduate portfolio — wildlife research, environmental science, biology education.">
+<link rel="icon" type="image/png" href="images/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+  :root{
+    --forest:#1b4332;
+    --moss:#52796f;
+    --sage:#84a98c;
+    --amber:#c08552;
+    --cream:#f6f2e7;
+    --paper:#fbf8f1;
+    --ink:#1c2620;
+    --line:#d8cfb8;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    font-family:"Poppins", sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.7;
+  }
+
+  h1,h2,h3{ font-family:"Playfair Display", serif; }
+
+  a{ color:inherit; }
+
+  ::selection{ background:var(--sage); color:#fff; }
+
+  /* ---------- SPLASH ---------- */
+  #splash{
+    position:fixed; inset:0; z-index:9999;
+    background:linear-gradient(160deg, var(--forest), var(--moss));
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    color:#fdfaf3;
+    transition:opacity .8s ease, visibility .8s ease;
+  }
+  #splash i{ font-size:2.6rem; margin-bottom:18px; opacity:0; animation:riseIn 1s ease forwards; }
+  #splash img.logo{ width:90px; height:90px; border-radius:50%; margin-bottom:18px; opacity:0; animation:riseIn 1s ease forwards; box-shadow:0 0 0 4px rgba(255,255,255,0.15); }
+  #splash h1{ font-size:2.2rem; letter-spacing:2px; opacity:0; animation:riseIn 1s ease forwards .3s; }
+  #splash p{ margin-top:8px; letter-spacing:4px; font-size:.8rem; text-transform:uppercase; opacity:0; animation:riseIn 1s ease forwards .6s; }
+  @keyframes riseIn{ from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:translateY(0);} }
+  #splash.hide{ opacity:0; visibility:hidden; }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky; top:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 6%;
+    background:rgba(251,248,241,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{ display:flex; align-items:center; gap:10px; }
+  .brand img.logo{ width:42px; height:42px; border-radius:50%; object-fit:cover; }
+  .brand-text h1{ font-size:1.35rem; color:var(--forest); letter-spacing:.5px; line-height:1.1; }
+  .brand-text span{ font-size:.72rem; letter-spacing:1.5px; color:var(--moss); text-transform:uppercase; }
+
+  #menu-toggle{
+    display:flex; align-items:center; gap:8px;
+    background:var(--forest); color:#fdfaf3;
+    border:none; border-radius:30px;
+    padding:10px 20px; font-family:inherit; font-size:.9rem; cursor:pointer;
+    transition:background .3s ease;
+  }
+  #menu-toggle:hover{ background:var(--moss); }
+
+  nav#side-menu{
+    position:fixed; top:0; right:-320px; width:300px; height:100%;
+    background:var(--forest); color:#fdfaf3;
+    padding-top:100px; z-index:99;
+    transition:right .45s ease;
+  }
+  nav#side-menu.open{ right:0; }
+  nav#side-menu ul{ list-style:none; padding:0 32px; }
+  nav#side-menu li{ margin-bottom:24px; }
+  nav#side-menu a{ text-decoration:none; font-size:1.05rem; display:flex; align-items:center; gap:12px; color:#fdfaf3; opacity:.85; transition:opacity .2s, color .2s; }
+  nav#side-menu a:hover{ opacity:1; color:var(--amber); }
+  nav#side-menu i{ width:20px; color:var(--sage); }
+
+  #overlay{
+    position:fixed; inset:0; background:rgba(10,20,15,0.5);
+    opacity:0; visibility:hidden; transition:opacity .4s ease, visibility .4s ease; z-index:98;
+  }
+  #overlay.show{ opacity:1; visibility:visible; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    height:92vh; min-height:520px;
+    display:flex; align-items:flex-end;
+    background-image:
+      linear-gradient(160deg, rgba(27,67,50,0.92), rgba(82,121,111,0.85)),
+      url("images/tiger-jungle.jpg");
+    background-size:cover; background-position:center; background-attachment:fixed;
+    color:#fdfaf3;
+  }
+  .hero-inner{ padding:0 6% 70px; max-width:800px; }
+  .hero-tag{ display:inline-block; padding:6px 16px; border:1px solid rgba(255,255,255,0.4); border-radius:30px; font-size:.75rem; letter-spacing:2px; text-transform:uppercase; margin-bottom:18px; }
+  .hero h1{ font-size:clamp(2.2rem, 5vw, 3.6rem); line-height:1.15; margin-bottom:14px; }
+  .hero p{ font-size:1.05rem; max-width:560px; opacity:.9; }
+  .scroll-cue{ position:absolute; bottom:24px; right:6%; font-size:.8rem; letter-spacing:2px; opacity:.8; display:flex; align-items:center; gap:8px; }
+
+  /* ---------- SECTIONS ---------- */
+  section{
+    max-width:900px; margin:0 auto; padding:80px 6%;
+    opacity:0; transform:translateY(24px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  section.visible{ opacity:1; transform:translateY(0); }
+  section:not(:last-of-type){ border-bottom:1px solid var(--line); }
+
+  .section-head{ display:flex; align-items:center; gap:14px; margin-bottom:28px; }
+  .section-head i{
+    width:46px; height:46px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--forest); color:#fdfaf3; border-radius:50%; font-size:1.1rem;
+  }
+  .section-head h2{ font-size:1.7rem; color:var(--forest); }
+  .section-head .sub{ display:block; font-size:.78rem; letter-spacing:1.5px; color:var(--amber); text-transform:uppercase; margin-top:2px; }
+
+  p.lead{ font-size:1.02rem; }
+
+  .card{
+    background:var(--paper); border-left:4px solid var(--sage);
+    border-radius:6px; padding:22px 26px; margin-bottom:20px;
+    box-shadow:0 2px 10px rgba(27,67,50,0.05);
+  }
+  .card h3{ font-size:1.1rem; color:var(--forest); margin-bottom:2px; }
+  .card .meta{ font-size:.85rem; color:var(--moss); font-style:italic; margin-bottom:10px; }
+  .card ul{ padding-left:20px; }
+  .card li{ margin-bottom:6px; }
+
+  ul.plain{ list-style:none; }
+  ul.plain li{
+    position:relative; padding-left:26px; margin-bottom:12px;
+  }
+  ul.plain li::before{
+    content:"\f06c"; font-family:"Font Awesome 6 Free"; font-weight:900;
+    position:absolute; left:0; top:2px; color:var(--sage); font-size:.9rem;
+  }
+
+  .skill-grid{ display:grid; grid-template-columns:1fr; gap:14px; }
+  .skill-item{ background:var(--paper); border-radius:6px; padding:16px 20px; border:1px solid var(--line); }
+  .skill-item strong{ color:var(--forest); display:block; margin-bottom:4px; }
+
+  /* ---------- CONTACT ---------- */
+  form{ display:flex; flex-direction:column; gap:16px; max-width:520px; margin-top:10px; }
+  label{ font-size:.85rem; font-weight:600; color:var(--forest); margin-bottom:4px; display:block; }
+  input, textarea{
+    width:100%; font-family:inherit; font-size:.95rem;
+    padding:12px 14px; border:1px solid var(--line); border-radius:6px;
+    background:var(--paper); color:var(--ink);
+  }
+  input:focus, textarea:focus{ outline:none; border-color:var(--sage); }
+  button[type="submit"]{
+    font-family:inherit; background:var(--forest); color:#fdfaf3; border:none;
+    padding:14px 28px; border-radius:30px; font-size:.95rem; cursor:pointer;
+    width:fit-content; transition:background .3s ease;
+  }
+  button[type="submit"]:hover{ background:var(--moss); }
+
+  .contact-info{ margin-top:34px; padding-top:24px; border-top:1px dashed var(--line); }
+  .contact-info p{ display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+  .contact-info i{ color:var(--amber); width:18px; }
+  .contact-info a{ color:var(--forest); font-weight:600; text-decoration:none; }
+  .contact-info a:hover{ text-decoration:underline; }
+
+  footer{
+    text-align:center; padding:34px 20px;
+    background:var(--forest); color:#fdfaf3; font-size:.85rem;
+  }
+  footer i{ color:var(--amber); }
+
+  /* ---------- NATURE BREAK BANNER ---------- */
+  .nature-break{
+    position:relative;
+    height:60vh; min-height:340px;
+    background-image:
+      linear-gradient(180deg, rgba(15,25,20,0.25), rgba(15,25,20,0.75)),
+      url("images/tiger-jungle.jpg");
+    background-size:cover;
+    background-position:center 30%;
+    background-attachment:fixed;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    color:#fdfaf3;
+    padding:0 8%;
+    max-width:none;
+    margin:0;
+    border:none;
+  }
+  .nature-break blockquote{
+    font-family:"Playfair Display", serif;
+    font-size:clamp(1.3rem, 3vw, 2rem);
+    font-style:italic;
+    max-width:700px;
+    line-height:1.5;
+  }
+  .nature-break span{
+    display:block; margin-top:14px; font-family:"Poppins", sans-serif;
+    font-style:normal; font-size:.8rem; letter-spacing:2px; text-transform:uppercase; opacity:.85;
+  }
+
+  @media(max-width:600px){
+    .brand-text h1{ font-size:1.1rem; }
+    .hero h1{ font-size:2rem; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- SPLASH -->
+  <div id="splash">
+    <img src="images/logo.png" alt="Logo" class="logo">
+    <h1>Welcome</h1>
+    <p>Rakesh Selvaraj &middot; Zoology Portfolio</p>
+  </div>
+
+  <div id="overlay"></div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="brand">
+      <img src="images/logo.png" alt="Logo" class="logo">
+      <div class="brand-text">
+        <h1>Rakesh Selvaraj</h1>
+        <span>M.Sc. Zoology</span>
+      </div>
+    </div>
+    <button id="menu-toggle" aria-label="Toggle navigation menu">
+      <i class="fa-solid fa-bars"></i> Menu
+    </button>
+  </header>
+
+  <!-- SIDE NAV -->
+  <nav id="side-menu">
+    <ul>
+      <li><a href="#about"><i class="fa-solid fa-feather"></i> About Myself</a></li>
+      <li><a href="#education"><i class="fa-solid fa-graduation-cap"></i> Education</a></li>
+      <li><a href="#skills"><i class="fa-solid fa-microscope"></i> Key Skills</a></li>
+      <li><a href="#internship"><i class="fa-solid fa-fish"></i> Internship</a></li>
+      <li><a href="#events"><i class="fa-solid fa-leaf"></i> Knowledge &amp; Events</a></li>
+      <li><a href="#interests"><i class="fa-solid fa-compass"></i> Area of Interest</a></li>
+      <li><a href="#contact"><i class="fa-solid fa-envelope"></i> Contact &amp; Feedback</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <span class="hero-tag">Wildlife &bull; Ecology &bull; Life Sciences</span>
+      <h1>Rakesh Selvaraj</h1>
+      <p>M.Sc. Zoology graduate passionate about wildlife research, environmental science, and biology education — grounded in fieldwork, lab technique, and a genuine curiosity for life sciences.</p>
+    </div>
+    <div class="scroll-cue"><i class="fa-solid fa-arrow-down"></i> Scroll</div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-head">
+      <i class="fa-solid fa-feather"></i>
+      <div><h2>About Myself</h2><span class="sub">Career Objective</span></div>
+    </div>
+    <p class="lead">Enthusiastic and detail-oriented M.Sc. Zoology graduate (CGPA 7.35) seeking an entry-level opportunity in biology education, wildlife research, environmental science, or laboratory-based roles. Equipped with practical internship experience in pisciculture and agricultural science, workshop training in Foldscope microscopy, and certifications in data science, presentation, and business communication. Committed to applying strong subject knowledge and a genuine passion for life sciences to contribute meaningfully to a research institution or educational organisation.</p>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-head">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <div><h2>Education</h2><span class="sub">Academic Background</span></div>
+    </div>
+
+    <div class="card">
+      <h3>Master of Science (M.Sc.) — Zoology</h3>
+      <p class="meta">2023 – 2025 &bull; Jamal Mohamed College (Autonomous), Tiruchirappalli &bull; CGPA: 7.35 / 10</p>
+    </div>
+
+    <div class="card">
+      <h3>Bachelor of Science (B.Sc.) — Zoology</h3>
+      <p class="meta">2020 – 2023 &bull; Bishop Heber College (Autonomous), Tiruchirappalli &bull; CGPA: 6.65 / 10</p>
+    </div>
+  </section>
+
+  <!-- KEY SKILLS -->
+  <section id="skills">
+    <div class="section-head">
+      <i class="fa-solid fa-microscope"></i>
+      <div><h2>Key Skills</h2><span class="sub">Technical &amp; Professional</span></div>
+    </div>
+    <div class="skill-grid">
+      <div class="skill-item"><strong>Subject Knowledge</strong>Zoology, Biology, Life Sciences, Ecology, Marine Biology, Wildlife Conservation, Environmental Science</div>
+      <div class="skill-item"><strong>Lab &amp; Field Skills</strong>Foldscope Microscopy, Specimen Preparation, Pisciculture Methods, Pond Management, Green Fodder Production</div>
+      <div class="skill-item"><strong>Research Skills</strong>Scientific Observation, Data Recording, Report Writing, Experimental Design, Literature Review</div>
+      <div class="skill-item"><strong>Teaching &amp; Communication</strong>Lesson Planning, NCERT / CBSE Curriculum, Presentation, Student Mentoring, Science Communication</div>
+      <div class="skill-item"><strong>Technology</strong>Data Science &amp; Analytics, AI Fundamentals, MS Office, Basic Digital Tools</div>
+      <div class="skill-item"><strong>Soft Skills</strong>Team Collaboration, Time Management, Adaptability, Problem Solving, Attention to Detail</div>
+    </div>
+  </section>
+
+  <!-- NATURE BREAK -->
+  <div class="nature-break">
+    <blockquote>
+      "In every walk with nature, one receives far more than he seeks."
+      <span>Wildlife &amp; Conservation</span>
+    </blockquote>
+  </div>
+
+  <!-- INTERNSHIP -->
+  <section id="internship">
+    <div class="section-head">
+      <i class="fa-solid fa-fish"></i>
+      <div><h2>Internships &amp; Field Training</h2><span class="sub">Practical Experience</span></div>
+    </div>
+
+    <div class="card">
+      <h3>Trainee — Green Fodder Production &amp; Dairy Value Addition</h3>
+      <p class="meta">2021 &bull; VUTRC | Skill Training of Rural Youth Scheme, Tamil Nadu</p>
+      <ul>
+        <li>Received hands-on training in green fodder cultivation, preservation methods, and value addition techniques for dairy products.</li>
+        <li>Developed practical understanding of farm management, soil preparation, and rural agricultural best practices under expert supervision.</li>
+        <li>Gained insight into the nutritional science of animal feed and its impact on dairy productivity.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Trainee — Pisciculture &amp; Aquaculture Techniques</h3>
+      <p class="meta">2022 &bull; KPK Fish Farm, Tamil Nadu</p>
+      <ul>
+        <li>Studied and practised fundamental freshwater fish farming methods including pond preparation, stocking, and feeding protocols.</li>
+        <li>Observed fish health monitoring, disease prevention measures, and post-harvest handling procedures.</li>
+        <li>Gained field exposure to water quality management and sustainable aquaculture practices.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- KNOWLEDGE & EVENTS -->
+  <section id="events">
+    <div class="section-head">
+      <i class="fa-solid fa-leaf"></i>
+      <div><h2>Knowledge &amp; Events</h2><span class="sub">Workshops, Seminars &amp; Conferences</span></div>
+    </div>
+    <ul class="plain">
+      <li><strong>Workshop on Foldscope: Technology and Its Uses (2022)</strong> — Organized by the Ministry of Culture, Government of India and Tamil Nadu Science and Technology Centre. Gained practical exposure to portable microscopy technology and its applications in field biology and science education.</li>
+      <li><strong>Wildlife Conservation</strong> — Topics covered: conservation biology, protected area management, biodiversity monitoring, and human-wildlife conflict resolution.</li>
+      <li><strong>Marine Fisheries of India &amp; Research Activities of CMFRI</strong> — Overview of India's marine fisheries sector and sustainable fisheries management research.</li>
+      <li><strong>Value Added Course on Employability Skills</strong> — Professional development training covering workplace communication, interview preparation, and career planning.</li>
+    </ul>
+  </section>
+
+  <!-- AREA OF INTEREST -->
+  <section id="interests">
+    <div class="section-head">
+      <i class="fa-solid fa-compass"></i>
+      <div><h2>Area of Interest</h2><span class="sub">Research Focus</span></div>
+    </div>
+    <ul class="plain">
+      <li><strong>Human &amp; Animal Physiology and Anatomy</strong> — body systems, organ functions, and comparative anatomy across vertebrate species.</li>
+      <li><strong>Environmental Science</strong> — ecosystems, climate impact, pollution control, and sustainability practices.</li>
+      <li><strong>Research &amp; Laboratory Techniques</strong> — microscopy, specimen preparation, experimental design, and scientific data analysis.</li>
+      <li><strong>Forest Ecology &amp; Silviculture</strong> — forest management, silvicultural systems, forest health monitoring, and forest products.</li>
+    </ul>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-head">
+      <i class="fa-solid fa-envelope"></i>
+      <div><h2>Contact &amp; Feedback</h2><span class="sub">Let's connect</span></div>
+    </div>
+    <p class="lead">Have a question, opportunity, or feedback? Send a message below.</p>
+
+    <!-- Formspree form -->
+    <form action="https://formspree.io/f/xvzjdvzj" method="POST">
+      <div>
+        <label for="name">Name *</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div>
+        <label for="email">Email ID *</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div>
+        <label for="subject">Subject *</label>
+        <input type="text" id="subject" name="subject" required>
+      </div>
+      <div>
+        <label for="message">Message / Feedback *</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </div>
+      <button type="submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+    </form>
+
+    <div class="contact-info">
+      <p><i class="fa-solid fa-phone"></i> +91 73971 64966</p>
+      <p><i class="fa-solid fa-envelope"></i> <a href="mailto:rakeshzoologists@gmail.com">rakeshzoologists@gmail.com</a></p>
+      <p><i class="fa-solid fa-location-dot"></i> Karur, Tamil Nadu, India</p>
+      <p><i class="fa-brands fa-github"></i> <a href="https://github.com/rakeshzoologists-S16" target="_blank">github.com/rakeshzoologists-S16</a></p>
+      <p><i class="fa-solid fa-globe"></i> <a href="https://rakeshzoologists-s16.github.io" target="_blank">rakeshzoologists-s16.github.io</a></p>
+      <p><i class="fa-solid fa-file-arrow-down"></i> <a href="resume.pdf" download>Download CV (PDF)</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <i class="fa-solid fa-paw"></i> &copy; <span id="year"></span> Rakesh Selvaraj. All rights reserved.
+  </footer>
+
+  <script>
+    // Splash screen
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        document.getElementById("splash").classList.add("hide");
+      }, 1800);
+    });
+
+    // Menu toggle
+    const menuToggle = document.getElementById("menu-toggle");
+    const sideMenu = document.getElementById("side-menu");
+    const overlay = document.getElementById("overlay");
+
+    function closeMenu(){
+      sideMenu.classList.remove("open");
+      overlay.classList.remove("show");
+    }
+    menuToggle.addEventListener("click", function () {
+      sideMenu.classList.toggle("open");
+      overlay.classList.toggle("show");
+    });
+    overlay.addEventListener("click", closeMenu);
+    document.querySelectorAll("#side-menu a").forEach(function (link) {
+      link.addEventListener("click", closeMenu);
+    });
+
+    // Scroll reveal
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.12 });
+    sections.forEach(sec => observer.observe(sec));
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
