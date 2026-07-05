@@ -23,6 +23,36 @@
     --line:#d8cfb8;
   }
 
+  /* ---------- MIDNIGHT JUNGLE (DARK MODE) ---------- */
+  body.dark-mode{
+    --forest:#0a0a0a;
+    --moss:#2b2e28;
+    --sage:#4a4f45;
+    --amber:#e8e6d8;
+    --cream:#0d0d0d;
+    --paper:#161614;
+    --ink:#c4c2b8;
+    --line:#333330;
+  }
+  body.dark-mode .hero{
+    background-image:
+      linear-gradient(160deg, rgba(10,10,10,0.88), rgba(20,24,20,0.8)),
+      url("images/panther-eyes.jpg");
+  }
+  body.dark-mode .nature-break{
+    background-image:
+      linear-gradient(180deg, rgba(10,10,10,0.35), rgba(10,10,10,0.82)),
+      url("images/panther-eyes.jpg");
+  }
+  body.dark-mode #splash{
+    background:linear-gradient(160deg, #0a0a0a, #1a1c1a);
+  }
+  body.dark-mode header{
+    background:rgba(13,13,13,0.9);
+  }
+  body{ transition:background .4s ease, color .4s ease; }
+  header, .hero, .nature-break, #splash{ transition:background .5s ease; }
+
   *{ box-sizing:border-box; margin:0; padding:0; }
 
   html{ scroll-behavior:smooth; }
@@ -77,6 +107,31 @@
     transition:background .3s ease;
   }
   #menu-toggle:hover{ background:var(--moss); }
+
+  .header-actions{ display:flex; align-items:center; gap:14px; }
+
+  /* ---------- THEME SWITCH ---------- */
+  #theme-switch{
+    position:relative;
+    width:54px; height:28px;
+    background:var(--forest);
+    border:none; border-radius:30px;
+    cursor:pointer; flex-shrink:0;
+    padding:3px;
+    transition:background .4s ease;
+  }
+  #theme-switch .knob{
+    width:22px; height:22px; border-radius:50%;
+    background:#fdfaf3; color:var(--forest);
+    display:flex; align-items:center; justify-content:center;
+    font-size:.7rem;
+    transform:translateX(0);
+    transition:transform .4s ease, background .4s ease, color .4s ease;
+  }
+  body.dark-mode #theme-switch .knob{
+    transform:translateX(26px);
+    background:#0d0d0d; color:var(--amber);
+  }
 
   nav#side-menu{
     position:fixed; top:0; right:-320px; width:300px; height:100%;
@@ -241,9 +296,14 @@
         <span>M.Sc. Zoology</span>
       </div>
     </div>
-    <button id="menu-toggle" aria-label="Toggle navigation menu">
-      <i class="fa-solid fa-bars"></i> Menu
-    </button>
+    <div class="header-actions">
+      <button id="theme-switch" aria-label="Toggle dark mode">
+        <span class="knob"><i class="fa-solid fa-sun"></i></span>
+      </button>
+      <button id="menu-toggle" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i> Menu
+      </button>
+    </div>
   </header>
 
   <!-- SIDE NAV -->
@@ -458,6 +518,7 @@
     // Footer year
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+  <script src="theme.js"></script>
 
 </body>
 </html>
