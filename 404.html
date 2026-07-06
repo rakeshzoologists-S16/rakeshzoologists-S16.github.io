@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Not Found — Rakesh Selvaraj</title>
+<meta name="description" content="Page not found — Rakesh Selvaraj's Zoology Portfolio.">
+<link rel="icon" type="image/png" href="images/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+  :root{
+    --forest:#1b4332;
+    --moss:#52796f;
+    --sage:#84a98c;
+    --amber:#c08552;
+    --cream:#f6f2e7;
+    --paper:#fbf8f1;
+    --ink:#1c2620;
+    --line:#d8cfb8;
+  }
+
+  /* ---------- MIDNIGHT JUNGLE (DARK MODE) ---------- */
+  body.dark-mode{
+    --forest:#0a0a0a;
+    --moss:#2b2e28;
+    --sage:#4a4f45;
+    --amber:#e8e6d8;
+    --cream:#0d0d0d;
+    --paper:#161614;
+    --ink:#c4c2b8;
+    --line:#333330;
+  }
+  body.dark-mode .page-hero{
+    background-image:
+      linear-gradient(160deg, rgba(10,10,10,0.88), rgba(20,24,20,0.8)),
+      url("images/panther-eyes.jpg");
+  }
+  body.dark-mode header{
+    background:rgba(13,13,13,0.9);
+  }
+  body.dark-mode .brand-text h1,
+  body.dark-mode .brand-text span,
+  body.dark-mode .not-found h2{
+    color:#880808;
+  }
+  body{ transition:background .4s ease, color .4s ease; }
+  header, .page-hero{ transition:background .5s ease; }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    font-family:"Poppins", sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.7;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+  }
+
+  h1,h2,h3{ font-family:"Playfair Display", serif; }
+  a{ color:inherit; }
+  ::selection{ background:var(--sage); color:#fff; }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky; top:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 6%;
+    background:rgba(251,248,241,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{ display:flex; align-items:center; gap:10px; }
+  .brand img.logo{ width:42px; height:42px; border-radius:50%; object-fit:cover; }
+  .brand-text h1{ font-size:1.35rem; color:var(--forest); letter-spacing:.5px; line-height:1.1; }
+  .brand-text span{ font-size:.72rem; letter-spacing:1.5px; color:var(--moss); text-transform:uppercase; }
+
+  .back-link{
+    display:flex; align-items:center; gap:8px;
+    background:var(--forest); color:#fdfaf3;
+    border:none; border-radius:30px; text-decoration:none;
+    padding:10px 20px; font-size:.9rem;
+    transition:background .3s ease;
+  }
+  .back-link:hover{ background:var(--moss); }
+
+  .header-actions{ display:flex; align-items:center; gap:14px; }
+
+  /* ---------- THEME SWITCH ---------- */
+  #theme-switch{
+    position:relative;
+    width:54px; height:28px;
+    background:var(--forest);
+    border:none; border-radius:30px;
+    cursor:pointer; flex-shrink:0;
+    padding:3px;
+    transition:background .4s ease;
+  }
+  #theme-switch .knob{
+    width:22px; height:22px; border-radius:50%;
+    background:#fdfaf3; color:var(--forest);
+    display:flex; align-items:center; justify-content:center;
+    font-size:.7rem;
+    transform:translateX(0);
+    transition:transform .4s ease, background .4s ease, color .4s ease;
+  }
+  body.dark-mode #theme-switch .knob{
+    transform:translateX(26px);
+    background:#0d0d0d; color:var(--amber);
+  }
+
+  /* ---------- 404 HERO ---------- */
+  .page-hero{
+    flex:1;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:60px 6%;
+    background-image:
+      linear-gradient(160deg, rgba(27,67,50,0.92), rgba(82,121,111,0.85)),
+      url("images/tiger-jungle.jpg");
+    background-size:cover; background-position:center; background-attachment:fixed;
+    color:#fdfaf3;
+    text-align:center;
+  }
+
+  .not-found{ max-width:520px; }
+
+  .not-found .gif-wrap{
+    max-width:380px;
+    margin:0 auto 8px;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+  }
+  .not-found .gif-wrap img{
+    width:100%;
+    display:block;
+  }
+
+  .not-found .paw-row{
+    font-size:2.4rem;
+    margin-bottom:8px;
+    opacity:.9;
+    letter-spacing:14px;
+  }
+
+  .not-found .code{
+    font-family:"Playfair Display", serif;
+    font-weight:800;
+    font-size:clamp(3.5rem, 10vw, 6rem);
+    line-height:1;
+    letter-spacing:4px;
+    color:#fdfaf3;
+    text-shadow:0 6px 24px rgba(0,0,0,0.25);
+  }
+
+  .not-found h2{
+    font-size:clamp(1.4rem, 3.5vw, 1.9rem);
+    margin:10px 0 12px;
+  }
+
+  .not-found p{
+    opacity:.92;
+    margin-bottom:32px;
+  }
+
+  .not-found .actions{
+    display:flex; gap:14px; justify-content:center; flex-wrap:wrap;
+  }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 28px;
+    border-radius:30px;
+    text-decoration:none;
+    font-size:.92rem;
+    font-weight:500;
+    transition:background .3s ease, color .3s ease, transform .2s ease;
+  }
+  .btn-primary{
+    background:#fdfaf3;
+    color:var(--forest);
+  }
+  .btn-primary:hover{
+    background:var(--amber);
+    color:#fdfaf3;
+    transform:translateY(-2px);
+  }
+  .btn-outline{
+    border:1px solid rgba(255,255,255,0.5);
+    color:#fdfaf3;
+  }
+  .btn-outline:hover{
+    background:rgba(255,255,255,0.12);
+    transform:translateY(-2px);
+  }
+
+  footer{
+    text-align:center; padding:34px 20px;
+    background:var(--forest); color:#fdfaf3; font-size:.85rem;
+  }
+  footer i{ color:var(--amber); }
+
+  @media(max-width:600px){
+    .brand-text h1{ font-size:1.1rem; }
+    .back-link span{ display:none; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="brand">
+      <img src="images/logo.png" alt="Logo" class="logo">
+      <div class="brand-text">
+        <h1>Rakesh Selvaraj</h1>
+        <span>M.Sc. Zoology</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button id="theme-switch" aria-label="Toggle dark mode">
+        <span class="knob"><i class="fa-solid fa-sun"></i></span>
+      </button>
+      <a class="back-link" href="index.html"><i class="fa-solid fa-arrow-left"></i> <span>Back to Portfolio</span></a>
+    </div>
+  </header>
+
+  <!-- 404 HERO -->
+  <div class="page-hero">
+    <div class="not-found">
+      <div class="gif-wrap">
+        <img src="https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif" alt="404 lost illustration">
+      </div>
+      <div class="code">404</div>
+      <h2>Looks like this trail went cold</h2>
+      <p>The page you're tracking doesn't exist or may have moved. Let's get you back to familiar territory.</p>
+      <div class="actions">
+        <a href="index.html" class="btn btn-primary"><i class="fa-solid fa-house"></i> Go to Home</a>
+        <a href="memories.html" class="btn btn-outline"><i class="fa-solid fa-images"></i> View Memories</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <i class="fa-solid fa-paw"></i> &copy; <span id="year"></span> Rakesh Selvaraj. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="theme.js"></script>
+
+</body>
+</html>
