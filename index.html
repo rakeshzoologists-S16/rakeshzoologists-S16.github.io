@@ -292,6 +292,36 @@
     font-style:normal; font-size:.8rem; letter-spacing:2px; text-transform:uppercase; opacity:.85;
   }
 
+  /* ---------- MOTIVATION BANNER ---------- */
+  .motivation-break{
+    position:relative;
+    min-height:60vh;
+    background-image:
+      linear-gradient(180deg, rgba(10,14,20,0.35), rgba(10,14,20,0.72)),
+      url("images/motivation.webp");
+    background-size:cover;
+    background-position:center 65%;
+    background-attachment:fixed;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    color:#fdfaf3;
+    padding:70px 8%;
+    max-width:none;
+    margin:0;
+    border:none;
+  }
+  .motivation-break blockquote{
+    font-family:"Playfair Display", serif;
+    font-size:clamp(1.25rem, 3vw, 1.9rem);
+    font-style:italic;
+    max-width:720px;
+    line-height:1.6;
+  }
+  .motivation-break span{
+    display:block; margin-top:18px; font-family:"Poppins", sans-serif;
+    font-style:normal; font-size:.8rem; letter-spacing:2px; text-transform:uppercase; opacity:.9;
+  }
+
   @media(max-width:600px){
     .brand-text h1{ font-size:1.1rem; }
     .hero h1{ font-size:2rem; }
@@ -458,6 +488,14 @@
       <li><strong>Forest Ecology &amp; Silviculture</strong> — forest management, silvicultural systems, forest health monitoring, and forest products.</li>
     </ul>
   </section>
+
+  <!-- MOTIVATION -->
+  <div class="motivation-break">
+    <blockquote>
+      "Work hard in silence, let your success be your noise, and let your future be as bright as the midday sun."
+      <span>— Rakesh Selvaraj</span>
+    </blockquote>
+  </div>
 
   <!-- CONTACT -->
   <section id="contact">
