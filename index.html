@@ -221,6 +221,16 @@
   .skill-grid{ display:grid; grid-template-columns:1fr; gap:14px; }
   .skill-item{ background:var(--paper); border-radius:6px; padding:16px 20px; border:1px solid var(--line); }
   .skill-item strong{ color:var(--forest); display:block; margin-bottom:4px; }
+  .skill-item.core-skill-item{ grid-column:1 / -1; }
+  .core-skill-list{ list-style:none; margin-top:8px; display:grid; grid-template-columns:1fr; gap:8px; }
+  .core-skill-list li{ position:relative; padding-left:22px; font-size:.95rem; }
+  .core-skill-list li::before{
+    content:"\f00c"; font-family:"Font Awesome 6 Free"; font-weight:900;
+    position:absolute; left:0; top:2px; color:var(--amber); font-size:.8rem;
+  }
+  @media(min-width:640px){
+    .core-skill-list{ grid-template-columns:1fr 1fr; }
+  }
 
   /* ---------- CONTACT ---------- */
   form{ display:flex; flex-direction:column; gap:16px; max-width:520px; margin-top:10px; }
@@ -456,6 +466,21 @@
       <div class="skill-item"><strong>Teaching &amp; Communication</strong>Lesson Planning, NCERT / CBSE Curriculum, Presentation, Student Mentoring, Science Communication</div>
       <div class="skill-item"><strong>Technology</strong>Data Science &amp; Analytics, AI Fundamentals, MS Office, Basic Digital Tools</div>
       <div class="skill-item"><strong>Soft Skills</strong>Team Collaboration, Time Management, Adaptability, Problem Solving, Attention to Detail</div>
+      <div class="skill-item core-skill-item">
+        <strong>Core Professional Skills</strong>
+        <ul class="core-skill-list">
+          <li>MS Excel (Data Entry, Formulas, Reporting), MS Word &amp; PowerPoint</li>
+          <li>Google Workspace (Sheets, Docs, Forms)</li>
+          <li>Data Recording, Analysis &amp; Report Writing</li>
+          <li>Customer Query Handling &amp; Client Communication</li>
+          <li>HR Documentation &amp; Records Management</li>
+          <li>CRM &amp; Helpdesk Tool Familiarity (exposure-level)</li>
+          <li>LinkedIn Networking &amp; Professional Outreach</li>
+          <li>Scheduling &amp; Cross-Team Coordination</li>
+          <li>Sales &amp; Lead Follow-Up Fundamentals</li>
+          <li>Process Documentation &amp; Compliance Adherence</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -564,8 +589,8 @@
       <p><i class="fa-solid fa-phone"></i> +91 73971 64966</p>
       <p><i class="fa-solid fa-envelope"></i> <a href="mailto:rakeshzoologists@gmail.com">rakeshzoologists@gmail.com</a></p>
       <p><i class="fa-solid fa-location-dot"></i> Karur, Tamil Nadu, India</p>
-      <p><i class="fa-brands fa-github"></i> <a href="https://github.com/rakeshzoologists-S16" target="_blank">github.com/rakeshzoologists-S16</a></p>
-      <p><i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/rakesh-s-zoologyists-343a34416" target="_blank">LinkedIn — Rakesh S</a></p>
+      <p><i class="fa-brands fa-github"></i> <a href="https://github.com/RAKESHS-007" target="_blank">github.com/RAKESHS-007</a></p>
+      <p><i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/rakeshselvaraj007" target="_blank">LinkedIn — Rakesh Selvaraj</a></p>
       <p><i class="fa-solid fa-globe"></i> <a href="https://rakesh007.vercel.app/" target="_blank">rakesh007.vercel.app</a></p>
       <p><i class="fa-solid fa-file-arrow-down"></i> <a href="resume.pdf" download>Download CV (PDF)</a></p>
     </div>
