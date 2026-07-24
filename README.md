@@ -1,26 +1,29 @@
-# 🌐 Rakesh Zoologists - Portfolio Website
+# Hi, I'm Rakesh Selvaraj 👋
 
-This is my personal portfolio website, showcasing my background in Zoology, my journey learning Python, and my interest in combining biology with technology.
+**M.Sc. Zoology | Research & Laboratory Data | Life Sciences × Data Analytics**
 
-## 🔗 Live Website
+I combine a biology research background with data analysis and documentation skills — applying scientific methodology to real-world biodiversity, food-safety, and life-sciences data problems.
 
-👉 [https://rakeshzoologists-s16.github.io/index.html](https://rakeshzoologists-s16.github.io/index.html)
+- 🔬 Research: food-safety testing, biodiversity field surveys, laboratory data recording
+- 📊 Learning: Python for data analysis, applying data science to zoology/ecology datasets
+- 🎓 M.Sc. Zoology (CGPA 7.35) — Jamal Mohamed College, Tiruchirappalli
+- 📄 Certified: Data Science & Analytics, AI Fundamentals, Business Communication (HP LIFE)
+- 🌐 Portfolio: [rakesh007.vercel.app](https://rakesh007.vercel.app)
+- 💼 LinkedIn: [rakeshselvaraj007](https://www.linkedin.com/in/rakeshselvaraj007)
+- 📧 rakeshzoologists@gmail.com
 
-## 📄 Pages
+## Featured Projects
 
-- **Home** (`index.html`) — Introduction, skills, and about me
-- **Memories** (`memories.html`) — Photo gallery of academic and field experiences
-- **Resume** (`resume.pdf`) — Downloadable resume
+| Project | Description |
+|---|---|
+| [wildlife-species-analyzer](https://github.com/RAKESHS-007/wildlife-species-analyzer) | Python analysis of wildlife species observation data using real GBIF/iNaturalist biodiversity datasets |
+| [rakeshzoologists-S16](https://github.com/RAKESHS-007/rakeshzoologists-S16) | Applying Python and basic data science skills to zoology and life-sciences problems |
+| [rakeshzoologists-S16.github.io](https://github.com/RAKESHS-007/rakeshzoologists-S16.github.io) | Personal portfolio website |
 
-## 🛠️ Built With
+## Skills
 
-- HTML
-- CSS
-- Hosted on GitHub Pages
+`Python` `Data Analysis` `MS Excel` `Research Methodology` `Scientific Documentation` `Data Visualization (learning)`
 
-## 👤 About Me
+## Currently exploring
 
-M.Sc. Zoology graduate | Python learner & tech enthusiast, passionate about combining wildlife conservation with data science and programming.
-
----
-*Maintained by Rakesh S*
+Bringing AI and data analytics tools into biodiversity and life-sciences research workflows.
